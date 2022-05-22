@@ -5,7 +5,7 @@ export default function Cart(){
     return (
 
         <>
-            <img src = "imgs/cart.png" alt = "logo" />
+            <img src = "../imgs/cart.png" alt = "cart" />
         </>
     );
 }

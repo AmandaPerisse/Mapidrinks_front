@@ -3,10 +3,11 @@ import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import styled from 'styled-components';
 import Header from '../../components/Header/Header.js';
+import Footer from '../../components/Footer/Footer.js';
 import { useNavigate } from 'react-router';
 import UserContext from '../../providers/UserContext';
 
-export default function ProductsPage() {
+export default function ListProductsPage() {
 
     const params = useParams();
 
@@ -56,7 +57,7 @@ export default function ProductsPage() {
                             <DrinkBorder>
                                 <Separator />
                                 <Drink onClick={() => {handleClickDrink(drink.name)}}>
-                                    <img src = {`imgs/${drink.name}.png`} />
+                                    <img src = {`../imgs/${drink.name.toLowerCase()}.png`} />
                                 </Drink>
                             </DrinkBorder>
                             <h2>{drink.name}</h2>
@@ -76,6 +77,7 @@ export default function ProductsPage() {
                     <DrinksButtons />
                 </Drinks>
             </Content>
+            <Footer />
         </>
     )
 }

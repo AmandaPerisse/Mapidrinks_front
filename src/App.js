@@ -6,7 +6,8 @@ import './styles/style.css';
 import LoginPage from './pages/LoginPage';
 import SignUpPage from './pages/SignUpPage';
 import HomePage from './pages/HomePage';
-import ProductsPage from './pages/ProductsPage';
+import ListProductsPage from './pages/ListProductsPage';
+import ProductPage from './pages/ProductPage';
 
 function App() {
 
@@ -28,7 +29,8 @@ function App() {
           <Route path="/" element={<LoginPage />}></Route>
           <Route path="/sign-up" element={<SignUpPage />}></Route>
           <Route path="/home" element={<HomePage />}></Route>
-          <Route path="/:category" element={<ProductsPage />}></Route>
+          <Route path="/:category" element={<ListProductsPage />}></Route>
+          <Route path="/:category/:productName" element={<ProductPage />}></Route>
         </Routes>
       </BrowserRouter>
     </UserContext.Provider>
