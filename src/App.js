@@ -20,6 +20,7 @@ function App() {
   const [infoStreet, setInfoStreet] = useState(JSON.parse(initialUserStreet));
   const [infoNumber, setInfoNumber] = useState(JSON.parse(initialUserNumber));
   const [token, setToken] = useState(initialToken);
+  localStorage.setItem('products', JSON.stringify([]));
 
   return (
 

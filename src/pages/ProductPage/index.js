@@ -16,6 +16,7 @@ export default function ProductPage() {
     const [title, setTitle] = React.useState('');
     const [quantity, setQuantity] = React.useState(0);
     const [deliveryType, setDeliveryType] = React.useState('');
+    const [cartAmount, setCartAmount] = React.useState(0);
 
     let titleAux = "";
 
@@ -64,16 +65,25 @@ export default function ProductPage() {
                 setQuantity(quantity-1);
             }
         }
-        else if (n ==1){
+        else if (n == 1){
             setQuantity(quantity+1);
         }
         
+    }
+    async function handleAddToCart(){
+        if(quantity > 0){
+            const items1 = JSON.parse(localStorage.getItem('products'));
+            const arr = [...items1, {name: title, quantity: quantity, price: dataList[0].price}];
+            localStorage.setItem('products', JSON.stringify(arr));
+            const items2 = JSON.parse(localStorage.getItem('products'));
+            setCartAmount(items2.length);
+        }
     }
 
     if(dataList.length > 0){
         return (
             <>
-                <Header />
+                <Header cartAmount = {cartAmount}/>
                 <Title>
                     <div className = "container">
                         <h1>{title}</h1>
@@ -122,13 +132,13 @@ export default function ProductPage() {
                         <option value = "2">Sachê</option>
                     </select>
                 </SelectSection>
-                <Button>
-                    <button>
+                <ButtonDiv>
+                    <button onClick={handleAddToCart}>
                         <h3>
                             Adicionar ao Carrinho
                         </h3>
                     </button>
-                </Button>
+                </ButtonDiv>
                 <Footer />
             </>
         )
@@ -195,8 +205,9 @@ const SelectSection = styled.div`
     display: flex;
     justify-content: center;
 `;
-const Button = styled.div`
+const ButtonDiv = styled.div`
     margin-top: 10px;
+    margin-bottom: 80px;
     display: flex;
     justify-content: center;
     button{
