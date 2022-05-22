@@ -2,6 +2,7 @@ import React, { useContext, useEffect } from 'react';
 import axios from 'axios';
 import styled from 'styled-components';
 import Header from '../../components/Header/Header.js';
+import Footer from '../../components/Footer/Footer.js';
 import { useNavigate } from 'react-router';
 import UserContext from '../../providers/UserContext';
 
@@ -58,6 +59,7 @@ export default function HomePage() {
                     <CategoryButtons />
                 </Categories>
             </Content>
+            <Footer />
         </>
     )
 }
@@ -71,6 +73,7 @@ const Categories = styled.div`
     align-items: center;
     justify-content: space-between;
     flex-wrap: wrap;
+    gap: 5px;
 `;
 const Category = styled.button`
     margin-top: 10px;
