@@ -7,7 +7,7 @@ import Footer from '../../components/Footer/Footer.js';
 import { useNavigate } from 'react-router';
 import UserContext from '../../providers/UserContext';
 
-export default function ListProductsPage() {
+export default function ListProductsPage({ cartAmount }) {
 
     const params = useParams();
 
@@ -70,7 +70,7 @@ export default function ListProductsPage() {
 
     return (
         <>
-            <Header />
+            <Header cartAmount={cartAmount}/>
             <Content className = "container">
                 <h1>{params.category[0].toUpperCase() + params.category.slice(1)}</h1>
                 <Drinks>

@@ -54,7 +54,6 @@ export default function Header({ cartAmount }) {
         for(let i = 0; i< list.length;i++){
             sumAux += parseInt(list[i].price)*parseInt(list[i].quantity);
         }
-        console.log(sumAux);
         setSum(sumAux);
     }
     async function handleClickX() {

@@ -5,6 +5,8 @@ import styled from 'styled-components';
 
 export default function LoginPage() {
 
+    localStorage.setItem('products', JSON.stringify([]));
+
     return (
         <Content>
             <Logo />

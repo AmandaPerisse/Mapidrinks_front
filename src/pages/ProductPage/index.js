@@ -7,7 +7,7 @@ import Footer from '../../components/Footer/Footer.js';
 import { useNavigate } from 'react-router';
 import UserContext from '../../providers/UserContext';
 
-export default function ProductPage() {
+export default function ProductPage({ setCartAmount, cartAmount }) {
 
     const params = useParams();
 
@@ -16,7 +16,7 @@ export default function ProductPage() {
     const [title, setTitle] = React.useState('');
     const [quantity, setQuantity] = React.useState(0);
     const [deliveryType, setDeliveryType] = React.useState('');
-    const [cartAmount, setCartAmount] = React.useState(0);
+    
 
     let titleAux = "";
 

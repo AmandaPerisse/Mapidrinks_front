@@ -6,7 +6,7 @@ import Footer from '../../components/Footer/Footer.js';
 import { useNavigate } from 'react-router';
 import UserContext from '../../providers/UserContext';
 
-export default function HomePage() {
+export default function HomePage({ cartAmount }) {
 
     const {token, setToken} = useContext(UserContext);
     const [dataList, setDataList] = React.useState([]);
@@ -52,7 +52,7 @@ export default function HomePage() {
 
     return (
         <>
-            <Header />
+            <Header cartAmount={cartAmount}/>
             <Content className = "container">
                 <h1>Categorias</h1>
                 <Categories>

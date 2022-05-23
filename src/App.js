@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import UserContext from "./providers/UserContext";
 import './styles/reset.css';
@@ -20,7 +20,8 @@ function App() {
   const [infoStreet, setInfoStreet] = useState(JSON.parse(initialUserStreet));
   const [infoNumber, setInfoNumber] = useState(JSON.parse(initialUserNumber));
   const [token, setToken] = useState(initialToken);
-  localStorage.setItem('products', JSON.stringify([]));
+
+  const [cartAmount, setCartAmount] = React.useState(0);
 
   return (
 
@@ -29,9 +30,9 @@ function App() {
         <Routes>
           <Route path="/" element={<LoginPage />}></Route>
           <Route path="/sign-up" element={<SignUpPage />}></Route>
-          <Route path="/home" element={<HomePage />}></Route>
-          <Route path="/:category" element={<ListProductsPage />}></Route>
-          <Route path="/:category/:productName" element={<ProductPage />}></Route>
+          <Route path="/home" element={<HomePage cartAmount={cartAmount}/>}></Route>
+          <Route path="/:category" element={<ListProductsPage cartAmount={cartAmount}/>}></Route>
+          <Route path="/:category/:productName" element={<ProductPage cartAmount={cartAmount} setCartAmount={setCartAmount}/>}></Route>
         </Routes>
       </BrowserRouter>
     </UserContext.Provider>
